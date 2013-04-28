@@ -7,6 +7,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -16,6 +18,27 @@ import org.apache.commons.validator.GenericValidator;
 public class StringUtils extends org.apache.commons.lang.StringUtils {
 	
 	private static Log logger = LogFactory.getLog(StringUtils.class);
+	
+	public static boolean isValidPhoneNumber(String in)
+	{
+		//+6512345678
+		Pattern pattern = Pattern.compile("\\+\\d{10}");
+		Matcher matcher = pattern.matcher(in);
+		 
+	      if (matcher.matches()) {
+	    	  return true;
+	      }
+	      else
+	      {
+	    	  return false;
+	      }
+		
+	}
+	/*public static void main(String [] args)
+	{
+		System.out.println(StringUtils.isValidPhoneNumber("+6512345678"));
+	}*/
+	
 	/**
      * This converts a name from remove_and_hump to removeAndHump
      * @param data

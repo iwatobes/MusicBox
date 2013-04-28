@@ -29,9 +29,9 @@ public class VoiceMessageHandler extends HoiioHandler{
 	{
 		for (String rep : recipient)
 		{
-			log.info("sending");
+			log.info("sending:"+appId+";"+accessCode);
 			IvrService ivr = new IvrService(appId, accessCode) ;
-			Dial temp = ivr.dial("+6564172064",content, "", "", "");
+			Dial temp = ivr.dial(rep,content, "private", "testMessage", "");
 			String out  = temp.getSession();
 			log.info("sending ses:"+out);
 		}

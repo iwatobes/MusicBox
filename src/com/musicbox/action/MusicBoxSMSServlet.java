@@ -24,6 +24,6 @@ public class MusicBoxSMSServlet extends HttpServlet {
 		}
 		
 		
-		resp.getWriter().println("content:"+smsContent);
+		resp.getWriter().println("sms content:"+smsContent);
 	}
 }
